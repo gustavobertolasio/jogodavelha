@@ -1,0 +1,30 @@
+<div class="site-container">
+    <div class="campo ">
+        <div class="botoes-jogo">
+            <app-quadrado *ngFor="let quadrado of quadrados; let i = index" class="botao-clicavel" [value]="quadrado" (click)="marcar(i)">
+            </app-quadrado>
+        </div>
+
+        <div class="barras-verticais ">
+            <div class="barra-vertical ">
+            </div>
+            <div class="barra-vertical ">
+
+            </div>
+        </div>
+        <div class="barras-horizontais ">
+            <div class="barra-horizontal ">
+
+            </div>
+            <div class="barra-horizontal ">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="botoes ">
+        <button (click)="iniciarJogo() ">INICIAR</button>
+        <button (click)="resetarJogo() ">RESETAR </button>
+    </div>
+
+</div>
