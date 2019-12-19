@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { JogoComponent } from './jogo/jogo.component';
 import { FormsModule } from '@angular/forms';
 import { QuadradoComponent } from './quadrado/quadrado.component';
+import { BotoesComponent } from './botoes/botoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JogoComponent,
-    QuadradoComponent
+    QuadradoComponent,
+    BotoesComponent
   ],
   imports: [
     BrowserModule,

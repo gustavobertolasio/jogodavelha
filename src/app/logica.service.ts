@@ -1,25 +1,23 @@
-import { Injectable, Input } from '@angular/core';
-import { QuadradoComponent } from './quadrado/quadrado.component'
+import { Injectable, Input, Output } from '@angular/core';
+import { JogoComponent } from './jogo/jogo.component';
 @Injectable({
   providedIn: 'root'
 })
 export class LogicaService {
-  @Input() quadrados: string[];
+  quadrados: string[];
   jogador: string;
   vencedor: boolean;
   inicio: boolean = false;
   empate: boolean = false;
   constructor() { }
 
-  marcar(botao: number):void{
-    console.log(botao);
+  marcar(botao: number):void{    
     if (this.inicio && !this.vencedor) {
       if (!this.quadrados[botao]) {
-        this.quadrados[botao] = this.jogador;
-        console.log(this.quadrados);
+        this.quadrados[botao] = this.jogador;        
         this.verificarVencedor();
       }
-
+      console.log(this.quadrados);
       if (!this.vencedor && !this.empate)
         this.trocarJogador();
       else if (this.empate)
@@ -54,20 +52,21 @@ export class LogicaService {
     if (!this.quadrados.includes(null) && !this.vencedor)
       this.empate = true;
   }
-  iniciarJogo():void {
+  iniciarJogo():void {    
     this.inicio = true;
     this.quadrados = Array(9).fill(null);
     this.jogador = 'X';
     this.vencedor = false;
     this.empate = false;
+    console.log(this.quadrados);
   }
 
   trocarJogador() {
     this.jogador === 'X' ? this.jogador = 'O' : this.jogador = 'X';
   }
-  resetarJogo() {
+  resetarJogo() {    
     if (this.inicio) {
-      this.iniciarJogo();
+      this.iniciarJogo();     
     }
   }
 }
