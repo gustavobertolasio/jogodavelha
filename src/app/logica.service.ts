@@ -11,10 +11,10 @@ export class LogicaService {
   empate: boolean = false;
   constructor() { }
 
-  marcar(botao: number):void{    
+  marcar(botao: number): void {
     if (this.inicio && !this.vencedor) {
       if (!this.quadrados[botao]) {
-        this.quadrados[botao] = this.jogador;        
+        this.quadrados[botao] = this.jogador;
         this.verificarVencedor();
       }
       console.log(this.quadrados);
@@ -52,21 +52,24 @@ export class LogicaService {
     if (!this.quadrados.includes(null) && !this.vencedor)
       this.empate = true;
   }
-  iniciarJogo():void {    
-    this.inicio = true;
-    this.quadrados = Array(9).fill(null);
-    this.jogador = 'X';
-    this.vencedor = false;
-    this.empate = false;
-    console.log(this.quadrados);
+  iniciarJogo(): void {
+    if (!this.inicio) {
+      this.inicio = true;
+      this.quadrados = Array(9).fill(null);
+      this.jogador = 'X';
+      this.vencedor = false;
+      this.empate = false;
+      console.log(this.quadrados);
+    }
   }
 
   trocarJogador() {
     this.jogador === 'X' ? this.jogador = 'O' : this.jogador = 'X';
   }
-  resetarJogo() {    
+  resetarJogo() {
     if (this.inicio) {
-      this.iniciarJogo();     
+      this.inicio=false;
+      this.iniciarJogo();
     }
   }
 }
