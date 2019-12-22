@@ -59,7 +59,6 @@ export class LogicaService {
       this.jogador = 'X';
       this.vencedor = false;
       this.empate = false;
-      console.log(this.quadrados);
     }
   }
 
